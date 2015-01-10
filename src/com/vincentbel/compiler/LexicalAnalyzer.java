@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Author: VincentBel
@@ -136,8 +137,24 @@ public class LexicalAnalyzer {
      * @return Symbol
      */
     private Symbol getKeywordOrIdentifier() {
-        Symbol symbol = null;
-        // TODO 实现
+        Symbol symbol;
+        String token = "";  // 识别的单词
+
+        // 将字符拼接成字符串
+        while (isLetter() || isDigit()) {
+            token += currentChar;
+            getChar();
+        }
+
+        // 二分查找保留字
+        int index = Arrays.binarySearch(Symbol.WORD, token);
+
+        if (index < 0) { // 未在保留字数组中找到token，说明token是标识符
+            symbol = new Symbol(Symbol.IDENTIFIER);
+            symbol.setName(token);
+        } else { // 在保留字数组中找到token，说明token是保留字
+            symbol = new Symbol(Symbol.WORD_SYMBOL[index]);
+        }
 
         return symbol;
     }

@@ -76,6 +76,23 @@ public class Symbol {
     public static final int WRITE_SYMBOL = 34;
 
 
+    // 设置保留字名字，按照字母顺序，便于二分查找
+    public static final String[] WORD = new String[] {
+            "begin", "call", "const", "do",
+            "else", "end", "if", "odd",
+            "procedure", "read", "repeat", "then",
+            "until", "var", "while", "write"
+    };
+
+    // 保留字对应的符号值
+    public static final int[] WORD_SYMBOL = new int[] {
+            BEGIN_SYMBOL, CALL_SYMBOL, CONST_SYMBOL, DO_SYMBOL,
+            ELSE_SYMBOL, END_SYMBOL, IF_SYMBOL, ODD_SYMBOL,
+            PROCEDURE_SYMBOL, READ_SYMBOL, REPEAT_SYMBOL, THEN_SYMBOL,
+            UNTIL_SYMBOL, VAR_SYMBOL, WHILE_SYMBOL, WRITE_SYMBOL
+    };
+
+
 
     private int symbolType;  // 符号的类型，即前面35种中的一种
 
