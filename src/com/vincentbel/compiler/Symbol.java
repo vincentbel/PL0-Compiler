@@ -74,4 +74,50 @@ public class Symbol {
     public static final int UNTIL_SYMBOL = 32;
     public static final int READ_SYMBOL = 33;
     public static final int WRITE_SYMBOL = 34;
+
+
+
+    private int symbolType;  // 符号的类型，即前面35种中的一种
+
+    private int number = 0; // 如果符号是无符号整数，则记录其值
+
+    private String name = ""; // 如果符号是保留字，则记录其名字
+
+    public Symbol(int symbolType) {
+        this.symbolType = symbolType;
+    }
+
+
+    /*------------------------------
+     * Getter
+     * -----------------------------
+     */
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSymbolType() {
+        return symbolType;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+
+
+    /*------------------------------
+     * Setter
+     * -----------------------------
+     */
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }
