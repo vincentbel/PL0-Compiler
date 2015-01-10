@@ -166,7 +166,13 @@ public class LexicalAnalyzer {
      */
     private Symbol getNumber() {
         Symbol symbol = new Symbol(Symbol.NUMBER);
-        // TODO 实现
+        int value = 0;
+        do {
+            value = value * 10 + (currentChar - '0');  // 计算无符号整数的值
+            getChar();
+        } while (isDigit());
+
+        symbol.setNumber(value);  // 设置无符号整数的值
 
         return symbol;
     }
