@@ -33,6 +33,31 @@ public class LexicalAnalyzer {
         }
     }
 
+    /**
+     * 词法分析中获取一个单词
+     *
+     * @return Symbol
+     */
+    public Symbol getSymbol() {
+        // 每次都提前读取一个字符
+
+        // 跳过空格
+        while (isSpace()) {
+            getChar();
+        }
+
+        if (isLetter()) {
+            // 保留字或者标识符
+            return getKeywordOrIdentifier();
+        } else if (isDigit()) {
+            // 无符号整数
+            return getNumber();
+        } else {
+            // 分界符 或者 非法字符
+            return getOperator();
+        }
+    }
+
 
     /**
      * 读取下一个字符。为增大读取磁盘IO，实际每次读取一行
@@ -74,5 +99,71 @@ public class LexicalAnalyzer {
         }
         currentChar = currentLineString.charAt(currentLineStringIndex);  // 获取下一个字符
         currentLineStringIndex++;  // 下标下移一个位置
+    }
+
+
+    /**
+     * 判断当前读取的字符是否是[空格]
+     *
+     * @return boolean
+     */
+    private boolean isSpace() {
+        return (currentChar == ' ');
+    }
+
+    /**
+     * 判断当前读取的字符是否是[数字]
+     *
+     * @return boolean
+     */
+    private boolean isDigit() {
+        return currentChar >= '0' && currentChar <= '9';
+    }
+
+    /**
+     * 判断当前读取的字符是否是[字母]
+     *
+     * @return boolean
+     */
+    private boolean isLetter() {
+        return (currentChar >= 'a' && currentChar <= 'z') || (currentChar >= 'A' && currentChar <= 'Z');
+    }
+
+
+    /**
+     * 获取符号——标识符或者保留字
+     *
+     * @return Symbol
+     */
+    private Symbol getKeywordOrIdentifier() {
+        Symbol symbol = null;
+        // TODO 实现
+
+        return symbol;
+    }
+
+    /**
+     * 获取符号——无符号整数
+     *
+     * @return Symbol
+     */
+    private Symbol getNumber() {
+        Symbol symbol = new Symbol(Symbol.NUMBER);
+        // TODO 实现
+
+        return symbol;
+    }
+
+    /**
+     * 获取符号——分界符或操作符
+     *
+     * @return Symbol
+     */
+    private Symbol getOperator() {
+
+        Symbol symbol = null;
+        // TODO 实现
+
+        return symbol;
     }
 }
