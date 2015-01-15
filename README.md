@@ -1,6 +1,9 @@
 # PL/0-Compiler
 A simple PL/0 compiler written in Java.
 
+Read more at [my blog](http://www.vincentbel.com/?cat=4).
+
+
 License
 ---------------
     The MIT License (MIT)
