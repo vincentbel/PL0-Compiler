@@ -137,4 +137,57 @@ public class Symbol {
         this.name = name;
     }
 
+
+
+    /*-------------------
+     * Debug
+     * ------------------
+     */
+
+    public static final String[] TYPE_NAME = {
+            "NULL",
+            "+",
+            "-",
+            "*",
+            "/",
+            "=",
+            "<>",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "(",
+            ")",
+            ",",
+            ";",
+            ".",
+            ":=",
+            "identifier",
+            "number",
+            "const",
+            "var",
+            "procedure",
+            "odd",
+            "if",
+            "then",
+            "else",
+            "while",
+            "do",
+            "call",
+            "begin",
+            "end",
+            "repeat",
+            "until",
+            "read",
+            "write"
+    };
+
+    /**
+     * 获取Symbol的名称
+     *
+     * @return Symbol的名称
+     */
+    public String getSymbolTypeName() {
+        return TYPE_NAME[getSymbolType()];
+    }
 }
